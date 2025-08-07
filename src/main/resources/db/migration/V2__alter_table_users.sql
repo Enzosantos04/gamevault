@@ -1,0 +1,3 @@
+ALTER TABLE users
+ADD COLUMN url_img VARCHAR(255) NOT NULL;
+
