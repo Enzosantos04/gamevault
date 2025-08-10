@@ -1,4 +1,7 @@
 package com.gamevault.gamevault.config;
 
-public record JWTUserData() {
+import lombok.Builder;
+
+@Builder
+public record JWTUserData(Long id, String email, String roles) {
 }
