@@ -9,13 +9,13 @@ public class PlataformMapper {
 
     public Plataform map(PlataformDTO dto){
         Plataform plataform = new Plataform();
-        plataform.setId(plataform.getId());
-        plataform.setName(plataform.getName());
+        plataform.setId(dto.getId());
+        plataform.setName(dto.getName());
         return plataform;
     }
 
-    public PlataformDTO map(Plataform plataform){
-        PlataformDTO dto = new PlataformDTO(plataform.getName(), plataform.getId());
+    public PlataformDTO map(Plataform plataform) {
+        PlataformDTO dto = new PlataformDTO();
         dto.setId(plataform.getId());
         dto.setName(plataform.getName());
         return dto;
