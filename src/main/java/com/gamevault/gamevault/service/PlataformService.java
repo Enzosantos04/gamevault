@@ -7,6 +7,7 @@ import com.gamevault.gamevault.repository.PlataformRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,5 +25,20 @@ public class PlataformService {
         return movies.stream()
                 .map(plataformMapper::map)
                 .collect(Collectors.toList());
+    }
+
+    public PlataformDTO createPlataform(PlataformDTO plataformDTO) {
+        Plataform plataform = plataformMapper.map(plataformDTO);
+        Plataform savedPlataform = plataformRepository.save(plataform);
+        return plataformMapper.map(savedPlataform);
+    }
+
+    public PlataformDTO getPlataformById(Long id){
+        Optional<Plataform> plataformOptional = plataformRepository.findById(id);
+        return plataformOptional.map(plataformMapper::map).orElse(null);
+    }
+
+    public void deletePlataformById(Long id){
+         plataformRepository.deleteById(id);
     }
 }
