@@ -1,5 +1,6 @@
 package com.gamevault.gamevault.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,9 +23,9 @@ public class Game {
     private String title;
     private String description;
     @Column(name = "release_date", nullable = false)
-    private String releaseDate;
+    private LocalDate releaseDate;
     private double rating;
-    @Column(name = "image_url")
+    @Column(name = "url_img")
     private String imageUrl;
     @CreationTimestamp
     private LocalDate createdAt;
