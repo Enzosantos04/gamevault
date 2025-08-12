@@ -8,6 +8,7 @@ import com.gamevault.gamevault.entity.User;
 import com.gamevault.gamevault.exception.UsernameOrPasswordInvalidException;
 import com.gamevault.gamevault.service.UserService;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -33,7 +34,7 @@ public class  AuthController {
     @PostMapping("/register")
     public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) {
         UserDTO savedUser = userService.register(userDTO);
-        return ResponseEntity.ok(savedUser);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }
 
     @PostMapping("/login")
