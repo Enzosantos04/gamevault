@@ -3,6 +3,7 @@ package com.gamevault.gamevault.controller;
 
 import com.gamevault.gamevault.config.TokenService;
 import com.gamevault.gamevault.dto.AuthDTO;
+import com.gamevault.gamevault.dto.TokenDTO;
 import com.gamevault.gamevault.dto.UserDTO;
 import com.gamevault.gamevault.entity.User;
 import com.gamevault.gamevault.exception.UsernameOrPasswordInvalidException;
@@ -38,7 +39,7 @@ public class  AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthDTO authDTO) {
+    public ResponseEntity<TokenDTO> login(@RequestBody AuthDTO authDTO) {
 
         try{
             UsernamePasswordAuthenticationToken userAndPassword =
@@ -46,7 +47,7 @@ public class  AuthController {
             Authentication authentication = authenticationManager.authenticate(userAndPassword);
             User user = (User) authentication.getPrincipal();
             String token = tokenService.generateToken(user);
-            return ResponseEntity.ok(token);
+            return ResponseEntity.ok(new TokenDTO(token));
         }catch (BadCredentialsException exception){
             throw new UsernameOrPasswordInvalidException("Username or password invalid.");
 
