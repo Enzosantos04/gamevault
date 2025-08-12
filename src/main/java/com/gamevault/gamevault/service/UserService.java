@@ -21,8 +21,8 @@ public class UserService {
 
     public UserDTO register(UserDTO userDTO){
     User user = userMapper.map(userDTO);
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+        String encodedPassword = user.getPassword();
+        user.setPassword(passwordEncoder.encode(encodedPassword));
         User savedUser = userRepository.save(user);
         return userMapper.map(savedUser);
 
