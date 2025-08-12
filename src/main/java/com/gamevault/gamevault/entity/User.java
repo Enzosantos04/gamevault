@@ -37,8 +37,7 @@ public class User implements UserDetails {
     private Date created_at;
     @UpdateTimestamp
     private Date updated_at;
-    @Column(nullable = false)
-    private String url_img;
+
 
 
     @Override
