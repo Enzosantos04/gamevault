@@ -1,0 +1,10 @@
+CREATE TABLE game (
+  id SERIAL PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+description TEXT,
+rating NUMERIC(2,1) CHECK (rating >= 0 AND rating <= 10),
+release_date DATE NOT NULL,
+  url_img VARCHAR(255),
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
