@@ -18,4 +18,6 @@ public class GameDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "ddd/MM/yyyy")
     private LocalDate releaseDate;
     private String imageUrl;
+
+
 }
