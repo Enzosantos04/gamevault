@@ -48,7 +48,7 @@ public class  AuthController {
             String token = tokenService.generateToken(user);
             return ResponseEntity.ok(token);
         }catch (BadCredentialsException exception){
-            throw new UsernameOrPasswordInvalidException("Username or password invalid");
+            throw new UsernameOrPasswordInvalidException("Username or password invalid.");
 
         }
 
