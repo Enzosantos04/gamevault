@@ -1,5 +1,6 @@
 package com.gamevault.gamevault.config;
 
+import com.gamevault.gamevault.enums.UserRole;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,7 +29,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             Optional<JWTUserData> optionalJWTUserData = tokenService.verifyToken(token);
             if (optionalJWTUserData.isPresent()){
                 JWTUserData jwtUserData = optionalJWTUserData.get();
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(jwtUserData, null, null);
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(jwtUserData, null, jwtUserData.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
             filterChain.doFilter(request, response);
