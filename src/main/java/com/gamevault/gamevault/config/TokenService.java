@@ -40,7 +40,7 @@ public class TokenService {
                     .id(jwt.getClaim("UserId").asLong())
                     .name(jwt.getClaim("name").asString())
                     .email(jwt.getSubject())
-                    .roles(jwt.getClaim("roles").asString())
+                    .roles(jwt.getClaim("roles").asInt())
             .build());
         }catch (JWTVerificationException exception){
             return Optional.empty();
