@@ -17,3 +17,41 @@ Ele utiliza **PostgreSQL**, **Docker**, **Spring Security (com roles)**, **Flywa
 ---
 
 ##  Estrutura do Repositório
+
+gamevault/
+├── src/
+│ ├── main/
+│ │ ├── java/… (código-fonte)
+│ │ └── resources/…
+│ └── test/…
+├── docker-compose.yaml
+├── pom.xml
+└── mvnw, mvnw.cmd, .mvn/…
+
+
+- **`src/`**: implementação dos controllers, serviços, repositórios, modelos, configurações de segurança e migrações.
+- **`docker-compose.yaml`**: facilita o setup com backend e banco PostgreSQL prontos para uso.
+- **`pom.xml`**: dependências do Spring Boot e plugins.
+- **Wrapper Maven (`mvnw`)**: execução do projeto sem exigir instalação prévia do Maven.
+
+---
+
+##  Como Executar
+
+### Pré-requisitos
+- Java 17+ (ou a versão definida no `pom.xml`)  
+- Docker e docker-compose instalados
+
+### Passos
+
+```bash
+# Clone o repositório
+git clone https://github.com/Enzosantos04/gamevault.git
+cd gamevault
+
+# Inicie o backend + banco de dados via Docker Compose
+docker-compose up --build
+
+# Alternativamente, execute com Maven (com banco configurado manualmente)
+./mvnw spring-boot:run
+
