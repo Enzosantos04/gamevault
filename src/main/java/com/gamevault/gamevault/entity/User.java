@@ -48,7 +48,6 @@ public class User implements UserDetails {
             //esse return instancia as authorities do usuário
             return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
             else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-
     }
 
     @Override
