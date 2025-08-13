@@ -13,6 +13,8 @@ public class GameMapper {
         game.setTitle(dto.getTitle());
         game.setDescription(dto.getDescription());
         game.setReleaseDate(dto.getReleaseDate());
+        game.setImageUrl(dto.getImageUrl());
+        game.setRating(dto.getRating());
         return game;
     }
 
@@ -23,6 +25,8 @@ public class GameMapper {
         dto.setTitle(game.getTitle());
         dto.setDescription(game.getDescription());
         dto.setReleaseDate(game.getReleaseDate());
+        dto.setImageUrl(game.getImageUrl());
+        dto.setRating(game.getRating());
         return dto;
     }
 }
