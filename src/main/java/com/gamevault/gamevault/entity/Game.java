@@ -27,8 +27,4 @@ public class Game {
     private double rating;
     @Column(name = "url_img")
     private String imageUrl;
-    @CreationTimestamp
-    private LocalDate createdAt;
-    @UpdateTimestamp
-    private LocalDate updatedAt;
 }
