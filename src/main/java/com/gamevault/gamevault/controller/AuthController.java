@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/gamevault/auth")
+@CrossOrigin(origins = "http://localhost:5173/", allowedHeaders = "*")
 public class  AuthController {
 
 
